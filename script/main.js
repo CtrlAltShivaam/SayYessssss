@@ -8,9 +8,16 @@ const animationTimeline = () => {
     .split("")
     .join("</span><span>")}</span`;
 
-  hbd.innerHTML = `<span>${hbd.innerHTML
-    .split("")
-    .join("</span><span>")}</span`;
+  // For small screens, wrap words (not characters) so each word can stack on its own line.
+  const hbdText = hbd.textContent || hbd.innerText || "";
+  if (window.innerWidth && window.innerWidth <= 500) {
+    const words = hbdText.trim().split(/\s+/);
+    hbd.innerHTML = words.map((w) => `<span>${w}</span>`).join(" ");
+  } else {
+    hbd.innerHTML = `<span>${hbd.innerHTML
+      .split("")
+      .join("</span><span>")}</span`;
+  }
 
   const ideaTextTrans = {
     opacity: 0,

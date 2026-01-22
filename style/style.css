@@ -217,6 +217,22 @@ body {
   /* text-transform: uppercase; */
 }
 
+/* Prevent per-letter animations from overlapping */
+.wish-hbd {
+  white-space: normal;
+  line-height: 1.05;
+  word-break: break-word;
+}
+
+.wish-hbd span {
+  display: inline-block;
+  margin-right: 0.04em;
+  transform-origin: center bottom;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 800px;
+}
+
 .wish h5 {
   font-weight: lighter;
   font-size: 2rem;
